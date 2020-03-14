@@ -1,4 +1,4 @@
-# fact
+# timer-test
 Factorial Program in GO language that can be executed:  
   
 (a) on your Mac OS  
@@ -8,7 +8,7 @@ Factorial Program in GO language that can be executed:
   
 Start with option (a) to make sure you download the program from github  
   
-# (a) fact on Mac OS  
+# (a) timer-test on Mac OS  
   
 - Prerequisite: You'll need to install the GO Language on your Mac.  
 - Do you already have GO installed? Try `Mac $ go version`   
@@ -19,16 +19,16 @@ Open a terminal window on your Mac and execute the following command:
 
 ```
 Mac $ cd /work  
-Mac $ git clone https://github.com/rm511130/fact  
-Mac $ cd /work/fact  
-Mac $ go run fact.go  
+Mac $ git clone https://github.com/rm511130/timer-test  
+Mac $ cd /work/timer-test
+Mac $ go run timer-test.go  
 ```
   
-- You should see a message like this one:  `2020/03/02 16:19:05 Starting Factorial Application...`
-- You can then test it using a browser:    `http://localhost:3000/5`
-- And you'll get as a reply:               `Calculating Factorials: 5! = 120` 
+- You should see a message like this one:  `2020/03/14 15:55:55 Starting Timer Test...`
+- You can then test it using a browser:    `http://localhost:3000/10000000000`
+- And you'll get as a reply:               `Counting from 1 to 10,000,000,000 took me 2.601754 seconds` 
   
-# (b) fact using Docker on Mac OS  
+# (b) timer-test using Docker on Mac OS  
   
 - Prerequisite: You'll need to install Docker on your Mac.  
 - Do you already have Docker installed? Try `Mac $ docker version`  
@@ -40,17 +40,18 @@ On an open terminal window with the familiar Docker Whale icon displayed somewhe
   
 ```
 Mac $ cd /work
-Mac $ git clone https://github.com/rm511130/fact 
-Mac $ cd /work/fact
-Mac $ docker build -t fact .  
-Mac $ docker run --publish 6060:3000 --name fact --rm fact  
+Mac $ git clone https://github.com/rm511130/timer-test
+Mac $ cd /work/timer-test
+Mac $ docker build -t timer-test .  
+Mac $ docker run --publish 6060:3000 --name timer-test --rm timer-test  
 ```
 
-- You should see a message like this one: `2020/03/02 21:39:23 Starting Factorial Application...`
-- You can now test it using a browser:    `http://localhost:6060/35` 
-- And you'll get as a reply:              `Calculating Factorial: 35! = 10333147966386144929666651337523200000000`
+- You should see a message like this one:  `2020/03/14 15:55:55 Starting Timer Test...`
+- You can then test it using a browser:    `http://localhost:6060/10000000000`
+- And you'll get as a reply:               `Counting from 1 to 10,000,000,000 took me 2.601754 seconds` 
+
   
-# (c) fact on Pivotal Cloud Foundry  
+# (c) timer-test on Pivotal Cloud Foundry  
   
 - Prerequisite: You'll Go on your Mac  
 Do you already have Godep installed? Try $ godep version  
@@ -59,20 +60,13 @@ To install Godep on your Mac, do this:   $ go get github.com/tools/godep
   
 Open a terminal window on your Mac and execute the following command:  
   
-$ cd /work/fact  
+$ cd /work/timer-test  
 $ godeps save  
 $ ls -a  
-.		..		.git		Dockerfile	Godeps		Procfile	README.md	fact.go  
-$ cf push fact -b https://github.com/cloudfoundry/go-buildpack  
+.		..		.git		Dockerfile	Godeps		Procfile	README.md	timer-test.go  
+$ cf push timer-test -b https://github.com/cloudfoundry/go-buildpack  
   
-You should see the usual creating app, route, binding, uploading ... and: urls: fact.cfapps.io  
-You can now test it:         http://fact.cfapps.io/6  
-And you'll get as a reply:   Calculating Factorials: 6! = 720  
-  
-
-
-
-
-
+You should see the usual creating app, route, binding, uploading ... and: urls: timer-test.cfapps.io  
+You can now test it:         http://timer-test.cfapps.io/10000000000  
 
 
