@@ -65,9 +65,10 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
             pp := r.URL.Path[1:len(r.URL.Path)]
-            k, err := strconv.Atoi(pp)
+            k, err := strconv.Atoi(pp) 
+            k = k * 1000000000
             if ( (len(pp) < 1) || (err != nil) ) { 
-                fmt.Fprint(w,"Try http://127.0.0.1:3000/5000 to have me count up to 5000 and tell you how long it took.") 
+                fmt.Fprint(w,"Try http://127.0.0.1:3000/5 to have me count up to 5 billion and tell you how long it took.") 
                 return
               } else {
             
@@ -77,8 +78,8 @@ func main() {
             diff := now.Sub(then);
             s_diff := diff.Seconds();
             str_diff := fmt.Sprintf("%f",s_diff)
-            fmt.Fprint(w,"Counting from 1 to " + humanize(int64(k)) + " took me " + str_diff + " seconds") 
-            log.Println("Counting from 1 to " + humanize(int64(k)) + " took me " + str_diff + " seconds")
+            fmt.Fprint(w,"I counted to " + humanize(int64(k)) + " in " + str_diff + " seconds") 
+            log.Println("I counted to " + humanize(int64(k)) + " in  " + str_diff + " seconds")
               }
 	})
 
