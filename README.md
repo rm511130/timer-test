@@ -25,8 +25,8 @@ Mac $ go run timer-test.go
 ```
   
 - You should see a message like this one:  `2020/03/14 15:55:55 Starting Timer Test...`
-- You can then test it using a browser:    `http://localhost:3000/10000000000`
-- And you'll get as a reply:               `Counting from 1 to 10,000,000,000 took me 2.601754 seconds` 
+- You can then test it using a browser:    `http://localhost:3000/10`
+- And you'll get as a reply:               `I counted to 10,000,000,000 in 2.601754 seconds` 
   
 # (b) timer-test using Docker on Mac OS  
   
@@ -47,8 +47,8 @@ Mac $ docker run --publish 6060:3000 --name timer-test --rm timer-test
 ```
 
 - You should see a message like this one:  `2020/03/14 15:55:55 Starting Timer Test...`
-- You can then test it using a browser:    `http://localhost:6060/10000000000`
-- And you'll get as a reply:               `Counting from 1 to 10,000,000,000 took me 2.601754 seconds` 
+- You can then test it using a browser:    `http://localhost:6060/10`
+- And you'll get as a reply:               `I counted to 10,000,000,000 in 2.601754 seconds` 
 
   
 # (c) timer-test on Pivotal Cloud Foundry  
@@ -67,6 +67,6 @@ $ ls -a
 $ cf push timer-test -b https://github.com/cloudfoundry/go-buildpack  
   
 You should see the usual creating app, route, binding, uploading ... and: urls: timer-test.cfapps.io  
-You can now test it:         http://timer-test.cfapps.io/10000000000  
+You can now test it:    http://timer-test.cfapps.io/10  
 
 
